@@ -11,8 +11,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
- // adicione seu código aqui vqv!
+const average = (array) => {
+  let myAverage = 0;  
+  
+  if (array.length === 0) { return undefined; }
+
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof (array[i]) === 'number') {      
+      myAverage += array[i];
+    } else {
+      return undefined;
+    }
+  }  
+  return Math.round((myAverage / array.length));
 };
 
 module.exports = average;
