@@ -99,10 +99,13 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order("coxinha");
     // objetoRetornado.consumption // Retorno: ["coxinha"]
     // ```
-    expect(createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} })['consumption'].order('coxinha') === 0).toBeTruthy();
+    const newMenu = createMenu(whateverMenu);
+    newMenu.order('coxinha');
+    expect(newMenu.consumption[0]).toEqual('coxinha');
 
 
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
+
     // --------------------------------------------------------------------------------------
 
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.

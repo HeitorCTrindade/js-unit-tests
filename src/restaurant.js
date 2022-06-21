@@ -96,6 +96,9 @@
 const createMenu = (newMenu) => ({
   fetchMenu: () => newMenu,
   consumption: [],
+  order: function orderFromMenu(request) { //ARROW FUNCITION NÃO FUNCIONA BEM AQUI?? ALTERNATIVAS?
+    this.consumption.push(request);
+  },  
 });
 
 module.exports = createMenu;
