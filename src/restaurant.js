@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+const { arrayGenerator } = require("./objPlayground");
+
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante através do qual será possível
   cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto que permite:
@@ -93,12 +95,34 @@
 // - retornará o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
+function findvalue(obj, item) {
+
+}
+
+
 const createMenu = (newMenu) => ({
   fetchMenu: () => newMenu,
   consumption: [],
   order: function orderFromMenu(request) { //ARROW FUNCITION NÃO FUNCIONA BEM AQUI?? ALTERNATIVAS?
     this.consumption.push(request);
   },  
+  pay: function payBack() { 
+    const myMenu = this.fetchMenu();
+    const tempArray = this.consumption;
+    let total = 0;        
+    for (let i = 0; i < tempArray.length; i += 1) {      
+      if (myMenu.food[tempArray[i]] !== undefined) {
+        total += myMenu.food[tempArray[i]];
+      }
+      if (myMenu.drink[tempArray[i]] !== undefined) {
+        total += myMenu.drink[tempArray[i]];
+      }
+    }
+    return (total * 1.1);
+  },  
 });
+
+//({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} })
+// Retorno: ['coxinha', 'agua', 'coxinha']
 
 module.exports = createMenu;
