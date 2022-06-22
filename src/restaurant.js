@@ -1,7 +1,5 @@
 /* eslint-disable max-len */
 
-const { arrayGenerator } = require("./objPlayground");
-
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante através do qual será possível
   cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto que permite:
